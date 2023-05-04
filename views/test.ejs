@@ -1,0 +1,49 @@
+<span><a href="">Zombies</a></span>
+<span><a href="">Mind Disturbing</a></span>
+<span><a href="">Mind Blowing</a></span>
+<span><a href="">Adventure</a></span>
+<span><a href="">Crime</a></span>
+<span><a href="">Prision Break</a></span>
+<span><a href="">Survivor</a></span>
+<span><a href="">Sci-fi</a></span>
+<span><a href="">Mystry</a></span>
+<span><a href="">Treasure Hunt</a></span>
+<span><a href="">Comedy</a></span>
+<span><a href="">Thriller</a></span>
+<span><a href="">Anime</a></span>
+<span><a href="">Hiest</a></span>
+<span><a href="">Un-Natural</a></span>
+<span><a href="">Super-hero</a></span>
+<span><a href="">Dark</a></span>
+<span><a href="">Detective</a></span>
+<span><a href="">Video Games</a></span>
+<span><a href="">Romance</a></span>
+<span><a href="">Frenchise</a></span>
+<span><a href="">Creature(vamp/wolf)</a></span>
+<span><a href="">Alien</a></span>
+<span><a href="">Based on True story</a></span>
+<span><a href="">War</a></span>
+<span><a href="">Short Flim</a></span>
+<span><a href="">For Kids</a></span>
+<span><a href="">Doumentry</a></span>
+<span><a href="">Maigic</a></span>
+<span><a href="">Murder</a></span>
+<span><a href="">Gore/Blood everywhere</a></span>
+
+
+<div>
+    <% movie.forEach(function(movie) { %>
+        <h2>
+            <%= movie.name %>
+        </h2>
+        <p>
+            <%= movie.description %>
+        </p>
+        <p><strong>Category:</strong>
+            <%= movie.category.join(', ') %></p>
+        <p><strong>Director:</strong> <%= movie.director %></p>
+        <p><strong>IMDB:</strong> <a href="<%= movie.IMDB %>" target="_blank">Link</a></p>
+        <img src="<%= movie.img %>" alt="<%= movie.name %>">
+        <hr>
+    <% }) %>
+</div>

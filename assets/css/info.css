@@ -1,0 +1,115 @@
+.info-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* background-color: aqua; */
+}
+
+.upper {
+    /* background-color: aquamarine; */
+    display: flex;
+    width: 95%;
+    height: 50vh;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.product-img {
+    background-color: blue;
+    height: 90%;
+    width: 27%;
+}
+
+.product-img img {
+    height: 100%;
+    width: 100%;
+}
+
+.product-details {
+    /* background-color: antiquewhite; */
+    height: 90%;
+    width: 65%;
+}
+
+.quantity-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aqua; */
+    width: 20%;
+    margin-top: 1%;
+}
+
+.quantity-input input[type=number] {
+    width: 50px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.quantity-input a {
+    width: 30px;
+    height: 30px;
+    background-color: #2e2e2e;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 10px;
+    color: aliceblue;
+    font-size: 1.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+.quantity-input button:hover {
+    background-color: #e4b20f;
+    color: black;
+}
+
+
+.cat {
+    background-color: #d1b559;
+    color: black;
+    font-size: 1.5rem;
+    padding: 0.2%;
+}
+
+.action-btn {
+    display: flex;
+    width: 30%;
+    /* background-color: #d1b559; */
+    height: 15%;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 2%;
+
+}
+
+.action-btn a, button {
+    background-color: lime;
+    height: 80%;
+    text-decoration: none;
+    color: black;
+    font-size: 1.6rem;
+    border-radius: 20px;
+    padding: 0.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
+.lower {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.desc {
+    background-color: #d1b559;
+    font-size: 2rem;
+    width: 90%;
+}

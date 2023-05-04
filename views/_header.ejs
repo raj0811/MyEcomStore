@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/head.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav ">
+            <div class="logo">
+                <a href="/"><img src="/image/logo.png" alt=""></a>
+            </div>
+
+            <div class="user">
+                <h1>Hello</h1>
+                <% if(locals.user) {%>
+                    <h2>
+                        <%=user.name%>
+                    </h2>
+                    <%} else{%>
+                        <a href="/users/signin">Sign</a>
+                        <%}%>
+            </div>
+            <div class="search">
+                <input type="search" class="src" placeholder="search" name="search">
+                <input type="button" value="Search" id="src-btn">
+            </div>
+            <a class="signout" href="/users/sign-out">Signout</a>
+            <div class="cart">
+                <% if(locals.user) {%>
+                    <a href="#">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <%}%>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nav2">
+        <div class="nnav">
+            <div class="links">
+                <a href="/">Home</a>
+                <a href="#">About Project</a>
+                <a href="#">Contact Me</a>
+                <div class="total-spent">
+                    <h1>Total Spent</h1>
+                    <% if(locals.user) {%>
+                        <span class="spent">
+                            <%= user.totalSpent %>
+                        </span>
+                        <%} else{%>
+                            <a href="/users/signin">Sign</a>
+                            <%}%>
+
+
+                </div>
+            </div>
+            <div class="premium-user">
+
+                <% if(locals.user) {%>
+                    <% if(user.userType=='premium' ) {%>
+                        <h1>Premium User</h1>
+                        <%} else{%>
+                            <a href="">Try Premium</a>
+                            <%}%>
+                                <%} else{%>
+                                    <a href="/users/signin">Sign</a>
+                                    <%}%>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+
+
+    <div class="main">
+        <div class="slider">
+            <div class="slides">
+                <img src="https://t3.ftcdn.net/jpg/04/12/33/92/360_F_412339280_8yXMCSiReo2YZEuwkuhglQBYahvpGiJE.jpg"
+                    alt="">
+                <img src="https://www.shutterstock.com/image-vector/powerful-sunscreen-product-banner-water-260nw-1502049644.jpg"
+                    alt="">
+                <img src="https://images.remotehub.com/d42c62669a7711eb91397e038280fee0/original_thumb/ec1eb042.jpg?version=1618112516"
+                    alt="">
+            </div>
+        </div>
+
+
+        <div class="offers">
+            <div class="off-head">
+                <h1>Offers</h1>
+            </div>
+
+            <div class="off-banners">
+                <div class="off-box">
+                    <h1>Great Summer Sale</h1>
+                    <div class="poster">
+                        <img src="https://cdn3.vectorstock.com/i/1000x1000/14/62/summer-sale-poster-template-hot-season-offer-vector-30021462.jpg"
+                            alt="Summer">
+                    </div>
+                </div>
+                <div class="off-box">
+                    <h1>Fassion Ssale </h1>
+                    <div class="poster">
+                        <img src="https://images.all-free-download.com/images/graphiclarge/fashion_sale_poster_templates_elegant_women_decor_6848488.jpg"
+                            alt="">
+                    </div>
+
+                </div>
+                <div class="off-box">
+                    <h1>Electronic Sale</h1>
+                    <div class="poster">
+                        <img src="https://cdn3.f-cdn.com//files/download/118198166/Photo_1596891603362.png?fit=crop"
+                            alt="">
+                    </div>
+                </div>
+                <div class="off-box">
+                    <h1>Best Seller</h1>
+                    <div class="poster">
+                        <img src="https://m.media-amazon.com/images/I/71E5zB1qbIL._SX522_.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="products">
+            <div class="product-ctn">
+                <% for(let product of products) {%>
+                    <div class="product-box">
+                        <div class="pimg">
+                            <img src="/images/products/<%= product.image%>">
+                        </div>
+                        <a href="/productinfo/<%= product._id %>">Product Name</a>
+                        <span>Rs. 4999</span>
+                    </div>
+                    <%}%>
+            </div>
+
+        </div>
+
+
+        <div class="">
+
+            <div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="/js/slider.js"></script>
+</body>
+
+</html>

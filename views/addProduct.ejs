@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/addproduct.css">
+</head>
+
+<body>
+    <h1>Add Product</h1>
+
+
+
+
+    <div class="form-ctn">
+
+
+        <form class="add-form" method="POST" action="/admin/addproduct" enctype="multipart/form-data">
+            <div class="txt">
+                <input type="text" id="productName" placeholder="Product Name" name="productName">
+                <input type="number" id="price" placeholder="Price" name="price">
+                <input type="number" id="qty" placeholder="Qty" name="qty">
+                <input type="text" id="category" placeholder="category" name="category">
+                <textarea id="description" placeholder="description" name="description"></textarea>
+            </div>
+            <div class="second">
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image">
+
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="product-list">
+        <table>
+            <tr>
+                <th>Pcode</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Description</th>
+            </tr>
+            <% for(let products of product) {%>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <%= products.productName %>
+                    </td>
+                    <td>
+                        <%= products.price %>
+                    </td>
+                    <td>
+                        <%= products.qty %>
+                    </td>
+                    <td>
+                        <%= products.category %>
+                    </td>
+                    <td>
+                        <%= products.description %>
+                    </td>
+                </tr>
+                <%}%>
+
+        </table>
+    </div>
+    <% for(let products of product) {%>
+        <%= products.productName %>
+            <%}%>
+
+</body>
+
+</html>

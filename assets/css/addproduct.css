@@ -1,0 +1,33 @@
+.form-ctn {
+
+    padding: 1%;
+    /* background-color: aquamarine; */
+}
+
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.txt {
+    display: flex;
+    /* background-color: rgb(88, 86, 84); */
+    justify-content: space-evenly;
+    width: 70%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.product-list {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 90%;
+    font-size: 1.4rem;
+}

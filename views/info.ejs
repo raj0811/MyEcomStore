@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/info.css">
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="info-main">
+            <div class="upper">
+                <div class="product-img">
+                    <img src="/images/products/<%= product.image%>">
+                </div>
+                <div class="product-details">
+                    <h1>
+                        <%= product.productName %>
+
+                    </h1>
+                    <h1>
+                        <%= product.id %>
+                    </h1>
+                    <h2>Rs. <%= product.price %>
+                    </h2>
+                    <span class="cat">
+                        <%= product.category %>
+                    </span>
+                    <form action="/products/add-to-cart/<%= product.id %>" method="post">
+                        <div class="quantity-input">
+                            <a class="decrease-btn">-</a>
+                            <input type="number" name="qty" min="1" max="10" value="1">
+                            <a class="increase-btn">+</a>
+                        </div>
+                        <div class="action-btn">
+                            <button> Add to Cart </button>
+                            <a href="" style="background-color:  #e4b20f;;">Buy Now</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="lower">
+                <div class="desc">
+                    <%= product %>
+                        <%= product.description %>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/js/qty.js"></script>
+</body>
+
+</html>

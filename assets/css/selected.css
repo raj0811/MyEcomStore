@@ -1,0 +1,48 @@
+.movielist {
+    /* background-color: rgb(212, 241, 143); */
+    height: 100vh;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+    padding: 1%;
+    overflow: scroll;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.movielist::-webkit-scrollbar {
+    display: none;
+}
+
+body {}
+
+.movie-box {
+    /* background-image: radial-gradient(circle farthest-corner at 16.5% 28.1%, rgba(15, 27, 49, 1) 0%, rgba(0, 112, 218, 1) 90%); */
+    height: 40%;
+    width: 15%;
+    padding: 1%;
+    /* color: aliceblue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 4%;
+}
+
+.img {
+    height: 75%;
+    width: 100%;
+}
+
+.img img {
+    height: 100%;
+    width: 100%;
+}
+
+.main-list {
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+}
