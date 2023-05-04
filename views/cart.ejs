@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+
+<body>
+    <% for(let item of cartItem) {%>
+        <%= item.quantity%>
+            <%}%>
+                <div class="main">
+
+                    <div class="cart-items">
+                        <div class="cart-box">
+                            <div class="item-img">
+
+                            </div>
+                            <div class="item-data">
+                                <div class="item">
+                                    <h1>Product Name</h1>
+                                    <h2>45</h2>
+                                    <h2>Rs. 9999</h2>
+                                </div>
+                                <div class="del">
+                                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</body>
+
+</html>
