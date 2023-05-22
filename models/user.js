@@ -23,13 +23,9 @@ const userSchema = new mongoose.Schema({
         enum: ['premium', 'non-premium'],
         default: 'non-premium'
     },
-    cart: {
-        type: Array,
-        default: []
-    },
     address: {
-        type: String,
-        default: ''
+        type: [String],
+        default: []
     },
     mobileNumber: {
         type: String,
@@ -38,7 +34,23 @@ const userSchema = new mongoose.Schema({
     totalSpent: {
         type: Number,
         default: 0
+    },
+    cart: {
+        type: [
+            {
+                productId: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: 'Product'
+                },
+                quantity: {
+                    type: Number,
+                    default: 1
+                }
+            }
+        ],
+        default: []
     }
+
 
 }, {
     timestamps: true

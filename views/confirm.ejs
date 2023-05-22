@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/confirm.css">
+    <button id="rzp-button1">Pay with Razorpay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Confirm Your Order</h1>
+	
+	
+    <div class="main">
+        <div class="left address">
+            <h1>Confirm Details</h1>
+
+
+            <form class="add" action="/products/addaddress" method="post">
+
+
+                <textarea name="newAddress" placeholder="Enter New Address" id="" cols="30" rows="10"></textarea>
+                <button type="submit">Add</button>
+            </form>
+
+            <h1> Select Address</h1>
+            <form class="pay-form">
+                <div class="select-add">
+                    <% if(user.address.length>0) {%>
+                        <% user.address.forEach((item, index)=> { %>
+                            <label>
+                                <input type="radio" name="address" value="<%= index %>" <% if (index===0) { %>checked<%
+                                    } %>>
+                                    <%= item %>
+                            </label>
+                            <% }) %>
+                                <%}%>
+                </div>
+                <div class="place-order">
+                    <h1>Confirm Order</h1>
+                    <span>Total Amount : <input type="number" name="amount" readonly value="<%=amount%>"></span> <br>
+                    <button type="submit">Proceed</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="right cart-items">
+			<h1>Items</h1>
+			<% for (let cart of transformedCartItems) {%>
+				<div class="cart-bar">
+					<div class="product-img">
+                        <img src="/images/products/<%= cart.productImage %>" alt="">
+                    </div>
+					<div class="product-data">
+						<h1>
+							<%= cart.productName%>
+						</h1>
+						<h2>
+							<%= cart.productPrice * cart.quantity %>
+						</h2>
+						<h2>
+							<%= cart.quantity %>
+						</h2>
+					</div>
+					
+				</div>
+				<%}%>
+        </div>
+
+    </div>
+
+
+
+
+<!--Inside index.html -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+
+$(document).ready(function(){
+	$('.pay-form').submit(function(e){
+		e.preventDefault();
+
+		var formData = $(this).serialize();
+
+		$.ajax({
+			url:"/products/proceed",
+			type:"POST",
+			data: formData,
+			success:function(res){
+				if(res.success){
+					var options = {
+						"key": ""+res.key_id+"",
+						"amount": ""+res.amount+"",
+						"currency": "INR",
+						"name": ""+res.product_name+"",
+						"description": ""+res.description+"",
+						"image": "https://dummyimage.com/600x400/000/fff",
+						"order_id": ""+res.order_id+"",
+						"handler": function (response){
+							// alert("Payment Succeeded");
+							window.open("/products/getproduct","_self")
+							// window.location.href ="http://localhost:8007/success"
+						},  
+						"prefill": {
+							"contact":""+res.contact+"",
+							"name": ""+res.name+"",
+							"email": ""+res.email+""
+						},
+						"notes" : {
+							"description":""+res.description+""
+						},
+						"theme": {
+							"color": "#2300a3"
+						}
+					};
+					var razorpayObject = new Razorpay(options);
+					razorpayObject.on('payment.failed', function (response){
+							alert("Payment Failed");
+					});
+					razorpayObject.open();
+				}
+				else{
+					alert(res.msg);
+				}
+			}
+		})
+
+	});
+});
+
+</script>
+
+
+</body>
+
+</html>

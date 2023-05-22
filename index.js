@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const session = require('express-session');
-const port = 8006
+const qrcode = require('qrcode');
+const port = 8008
 const app = express();
 const flash = require('connect-flash');
 var bodyParser = require('body-parser')
@@ -13,7 +14,7 @@ const db = require('./config/mongoose');
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy')
 const LocalStrategy = require('passport-local').Strategy;
-
+const axios = require('axios');
 app.use(bodyParser.json())
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));

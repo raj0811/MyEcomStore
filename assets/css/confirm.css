@@ -1,0 +1,131 @@
+.main{
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.address{
+    /* background-color: blueviolet; */
+    width: 45%;
+    /* border: 2px solid red; */
+    padding: 1%;
+    
+}
+
+
+
+
+.add{
+    display: flex;
+    /* background-color: aquamarine; */
+    width: 60%;
+    justify-content: space-between;
+}
+.add textarea{
+    height: 10vh;
+    width: 70%;
+}
+.add button{
+    margin-top: 2%;
+    width: 20%;
+    height: 5vh;
+    border: none;
+    background-color: lightgreen;
+    border-radius: 20px;
+}
+
+.proceed-form{
+    /* background-color: aqua; */
+    width: 70%;
+}
+
+.select-add{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.select-add{
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.select-add label{
+    margin-left: 3%;
+}
+
+.place-order{
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2%;
+    margin-top: 3%;
+}
+
+.place-order span{
+    background-color: aquamarine;
+    
+} 
+.place-order input{
+    border: none;
+    font-size: 1.4rem;
+}
+.place-order button{
+    margin-top: 3%;
+    background-color: lime;
+    border: none;
+    border-radius: 20px;
+    font-size: 2rem;
+    width: 30%;
+}
+.right{
+    width: 45%;
+    /* background-color: aqua; */
+    border: 1px solid black;
+}
+
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 90%; */
+    /* background-color: aquamarine; */
+    padding: 1%;
+}
+
+.cart-bar {
+    background-color: aliceblue;
+    width: 70%;
+    height: 10vh;
+    display: flex;
+    padding: 0.5%;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    margin: 1%;
+}
+
+.product-img {
+    background-color: black;
+    height: 98%;
+    width: 12%;
+}
+
+.product-img img {
+    height: 100%;
+    width: 100%;
+}
+
+.product-data {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    /* align-items: center; */
+    flex-direction: column;
+    
+}
+.product-data h1, .product-data h2{
+    font-size: 1.0rem;
+}

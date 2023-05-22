@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/confirm.css">
+    <button id="rzp-button1">Pay with Razorpay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+    <h1>Confirm Your Order</h1>
+    <div class="main">
+        <div class="address">
+            <h1>Confirm Details</h1>
+
+
+            <form class="add" action="/products/addaddress" method="post">
+
+
+                <textarea name="newAddress" placeholder="Enter New Address" id="" cols="30" rows="10"></textarea>
+                <button type="submit">Add</button>
+            </form>
+
+            <h1>or Select Address</h1>
+            <form class="proceed-form" action="/products/proceed" method="post">
+                <div class="select-add">
+                    <% if(user.address.length>0) {%>
+                        <% user.address.forEach((item, index)=> { %>
+                            <label>
+                                <input type="radio" name="address" value="<%= index %>" <% if (index===0) { %>checked<%
+                                    } %>>
+                                    <%= item %>
+                            </label>
+                            <% }) %>
+                                <%}%>
+                </div>
+                <div class="place-order">
+                    <h1>Confirm Order</h1>
+                    <span>Total Amount : <input type="number" name="totalamt" readonly value="<%=amount%>"></span> <br>
+                    <button type="submit">Proceed</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="right">
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

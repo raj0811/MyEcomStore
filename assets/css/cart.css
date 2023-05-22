@@ -13,26 +13,34 @@
     padding: 1%;
 }
 
-.cart-box {
+.cart-bar {
     background-color: aliceblue;
     width: 70%;
     height: 15vh;
     display: flex;
     padding: 0.5%;
     justify-content: space-evenly;
+    border: 1px solid black;
+    margin: 1%;
 }
 
-.item-img {
+.product-img {
     background-color: black;
     height: 98%;
     width: 12%;
 }
 
-.item-data {
+.product-img img {
+    height: 100%;
+    width: 100%;
+}
+
+.product-data {
     display: flex;
     justify-content: space-between;
     width: 80%;
-    align-items: center;
+    /* align-items: center; */
+    flex-direction: column;
 }
 
 .del {

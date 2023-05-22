@@ -67,8 +67,8 @@
                         <div class="pimg">
                             <img src="/images/products/<%= product.image%>">
                         </div>
-                        <a href="/productinfo/<%= product._id %>">Product Name</a>
-                        <span>Rs. 4999</span>
+                        <a href="/productinfo/<%= product._id %>"><%=product.productName%></a>
+                        <span><%=product.price%></span>
                     </div>
                     <%}%>
             </div>

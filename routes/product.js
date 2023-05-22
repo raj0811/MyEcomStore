@@ -6,6 +6,18 @@ const productController = require('../controllers/product_controller');
 
 router.post('/add-to-cart/:id', productController.addToCart)
 
-router.get('/cart', productController.cart)
+router.get('/cart', productController.showCart)
 
-module.exports = router; 
+router.get('/:id/delete', productController.deleteCartItem);
+
+router.get('/confirm', productController.confirm)
+
+// proceed to payment
+router.post('/proceed', productController.proceed)
+
+router.post('/addaddress',productController.addAddress)
+
+router.get('/getproduct',productController.getOrder)
+
+
+module.exports = router;  

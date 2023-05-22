@@ -64,7 +64,7 @@
 
 }
 
-.quantity-input button:hover {
+.quantity-input a:hover {
     background-color: #e4b20f;
     color: black;
 }
