@@ -16,7 +16,9 @@ module.exports.home = async (req, res) => {
 
 
 module.exports.info = async (req, res) => {
-    const productId = req.params.id;
+
+    try{
+        const productId = req.params.id;
     const product = await Product.findById(productId);
 
 
@@ -26,6 +28,10 @@ module.exports.info = async (req, res) => {
         title: 'Product Details',
         product: product
     });
+    }catch(err){
+        res.send(err)
+    }
+    
 
 
 };

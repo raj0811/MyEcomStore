@@ -12,13 +12,18 @@ module.exports.home = (req, res) => {
 
 module.exports.renderAddProduct = async (req, res) => {
 
-    let product = await Product.find({}).exec();
+    try{
+        let product = await Product.find({}).exec();
 
     console.log(product);
     return res.render('addProduct', {
         title: "Admin",
         product: product
     })
+    }catch(err){
+        res.send(err)
+    }
+    
 }
 
 

@@ -162,8 +162,8 @@ function getItems(cartItems,transformedCartItems){
 module.exports.confirm=async(req,res)=>{
    
     
-  
-    const amount = req.query.amt
+    try{
+        const amount = req.query.amt
     const userId=req.user.id
    
    
@@ -177,12 +177,7 @@ module.exports.confirm=async(req,res)=>{
     const transformedCartItems = [];
 
     getItems(cartItems,transformedCartItems)
-   
-    
     // console.log(transformedCartItems);
-
-       
-
     console.log(amount);
     console.log(userId);
     return res.render('confirm',{
@@ -195,14 +190,22 @@ module.exports.confirm=async(req,res)=>{
         
         
     })
+    }catch(err){
+        res.send(err)
+    }
+  
+    
 }
 
+
+
 module.exports.addAddress=async(req,res)=>{
-    const amount = req.params.amt
-   
+
+    try{
+
+        const amount = req.params.amt
     const address=req.body.address
     const newAddress = req.body.newAddress
-
     const userId=req.user.id
 
     const user = await User.findById(userId);
@@ -218,6 +221,11 @@ module.exports.addAddress=async(req,res)=>{
     }
 
     return res.redirect('back')
+    }catch(err){
+        console.log(err);
+    }
+    
+    
 }
 
 const razorpayInstance = new Razorpay({
@@ -273,16 +281,13 @@ module.exports.proceed = async(req,res)=>{
 
 module.exports.getOrder=async(req,res)=>{
 
-    const userId=req.user.id
+    try{
+        const userId=req.user.id
     const user = await User.findById(userId).populate('cart.productId');
     const cartItems = user.cart;
 
     const transformedCartItems = [];
-
-    
-
     getItems(cartItems,transformedCartItems)
-
     console.log(transformedCartItems);
 
     if(user.cart.length !== 0){
@@ -300,11 +305,17 @@ module.exports.getOrder=async(req,res)=>{
     //   user.cart = []; 
     // await user.save();
 
-    let recentOrderes = await Orders.findById(userId)
+    let recentOrderes = await Orders.find({userId:userId})
 
     console.log(recentOrderes);
 
     return res.render('order',{
-        title:'Orders'
+        title:'Orders',
+        orders: recentOrderes,
     })
+    }catch(err){
+        console.log(err);
+    }
+
+    
 }

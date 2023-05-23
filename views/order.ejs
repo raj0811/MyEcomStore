@@ -9,6 +9,38 @@
     <title>Document</title>
 </head>
 <body>
+    
     <h1>Orders</h1>
+
+
+    <!-- order.ejs -->
+
+<h1><%= title %></h1>
+
+<% if (orders.length > 0) { %>
+  <% orders.forEach(order => { %>
+    <h2>Order ID: <%= order._id %></h2>
+    <ul>
+      <% order.items.forEach(item => { %>
+        <li>
+          <div>
+            <img src="/images/products/<%= item.productImage %>" alt="<%= item.productName %>">
+          </div>
+          <div>
+            <h3><%= item.productName %></h3>
+            <p>Price: <%= item.productPrice %></p>
+            <p>Quantity: <%= item.quantity %></p>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+  <% }); %>
+<% } else { %>
+  <p>No orders available.</p>
+<% } %>
+
+
+
+
 </body>
 </html>
