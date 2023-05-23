@@ -76,12 +76,59 @@
         </div>
 
 
-        <div class="">
-
-            <div>
-
+        <div class="category-main">
+            <div class="category-div">
+                <div class="category">
+                    <a href=""><img src="https://cdn-icons-png.flaticon.com/128/1261/1261143.png" alt=""></a>
+                    
+                  </div>
+                  <div class="category">
+                     <a href=""><img src="https://cdn-icons-png.flaticon.com/128/2954/2954918.png" alt=""></a>
+                  </div>
+                  <div class="category">
+                      <a href=""><img src="https://cdn-icons-png.flaticon.com/128/1702/1702342.png" alt=""></a>
+                  </div>
+                  <div class="category">
+                      
+                    <a href=""> <img src="https://cdn-icons-png.flaticon.com/128/2163/2163350.png" alt=""></a>
+                  </div>
+                  <div class="category">
+                      <a href=""><img src="https://cdn-icons-png.flaticon.com/128/2232/2232688.png" alt=""></a>
+                  </div>
+      
+                  <div class="category">
+                      <a href=""><img src="https://cdn-icons-png.flaticon.com/128/3311/3311579.png" alt=""></a>
+                    </div>
+                    <div class="category">
+                        <a href=""><img src="https://cdn-icons-png.flaticon.com/128/3549/3549070.png" alt=""></a>
+                    </div>
+                    <div class="category">
+                        <a href=""><img src="https://cdn-icons-png.flaticon.com/128/5564/5564849.png" alt=""></a>
+                    </div>
+                    <div class="category">
+                        <a href=""><img src="https://cdn-icons-png.flaticon.com/128/3275/3275959.png" alt=""></a>
+                    </div>
+                    <div class="category">
+                        <a href=""><img src="https://cdn-icons-png.flaticon.com/128/5501/5501295.png" alt=""></a>
+                    </div>
             </div>
+        </div>
 
+        <div class="all-product">
+            <div class="products">
+                <div class="product-ctn">
+                    <% for(let product of allProduct) {%>
+                        <div class="product-box">
+                            <div class="pimg">
+                                <img src="/images/products/<%= product.image%>">
+                            </div>
+                            <a class="pnames" href="/productinfo/<%= product._id %>"><%=product.productName%></a>
+                            <span class="pprice" >Rs. <%=product.price%></span>
+                        </div>
+                        <%}%>
+                </div>
+    
+            </div>
         </div>
     </div>
 

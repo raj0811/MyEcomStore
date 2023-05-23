@@ -16,6 +16,7 @@
     <div class="main">
 
         <div class="cart-items">
+            <h1>Your Cart</h1>
             <% for (let cart of transformedCartItems) {%>
                 <div class="cart-bar">
                     <div class="product-img">
@@ -32,15 +33,22 @@
                             <%= cart.quantity %>
                         </h2>
                     </div>
-                    <a href="/products/<%= cart.productId %>/delete"><i class="fa-solid fa-trash"></i></a>
+                    <a class="del-btn" href="/products/<%= cart.productId %>/delete"><i class="fa-solid fa-trash"></i></a>
                 </div>
                 <%}%>
 
                     <h3>Total Amount: <%= calculateTotalAmount(transformedCartItems) %>
                     </h3>
 
-                    <a href="/products/confirm?amt=<%= calculateTotalAmount(transformedCartItems) %>">next</a>
+                    <a class="next" href="/products/confirm?amt=<%= calculateTotalAmount(transformedCartItems) %>">Proceed to Payment</a>
                     
+        </div>
+        <div class="cart-summary">
+            <h1>Cart Summary</h1>
+            <div class="cart-summ">
+                <h1>Total Amount : Rs <%= calculateTotalAmount(transformedCartItems) %></h1>
+                <h2>Total Quantity: <%= calculateTotalQuantity(transformedCartItems) %></h2>
+            </div>
         </div>
 
 

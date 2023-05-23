@@ -5,12 +5,11 @@ const Razorpay = require('razorpay');
 const { RAZORPAY_ID_KEY, RAZORPAY_SECRET_KEY } = process.env;
 const Orders = require('../models/orders')
 
-
-
 module.exports.addToCart = async (req, res) => {
     try {
         const userId = req.user.id
         const productId = req.params.id
+        const qty = parseInt(req.body.qty);
 
         // Find the user by ID
         const user = await User.findById(userId);
@@ -24,8 +23,22 @@ module.exports.addToCart = async (req, res) => {
             quantity: req.body.qty
         };
 
+        const existingCartItem =  user.cart.find(
+            (item)=>
+            item.productId.toString()=== productId.toString() 
+
+        )
+        if(existingCartItem){
+            existingCartItem.quantity +=qty
+        }else{
+            const newCartItem = {
+                productId: productId,
+                quantity: req.body.qty
+            };
+            user.cart.push(newCartItem);
+        }
         // Add the new cart item to the user's cart
-        user.cart.push(newCartItem);
+        // user.cart.push(newCartItem);
 
         // Save the updated user document
         const savedUser = await user.save();
@@ -95,6 +108,7 @@ module.exports.showCart = async (req, res) => {
             title: 'Cart',
             transformedCartItems,
             calculateTotalAmount,
+            calculateTotalQuantity,
         });
     } catch (error) {
         console.error('Error retrieving cart items:', error);
@@ -156,6 +170,14 @@ function getItems(cartItems,transformedCartItems){
         transformedCartItems.push(transformedItem);
     }
     return transformedCartItems
+}
+
+function calculateTotalQuantity(cartItems) {
+    let totalQuantity = 0;
+    for (let cart of cartItems) {
+        totalQuantity += cart.quantity;
+    }
+    return totalQuantity;
 }
 
 
@@ -238,6 +260,7 @@ const razorpayInstance = new Razorpay({
 module.exports.proceed = async(req,res)=>{
   
     try {
+        console.log('hiii');
         const address = req.body.address;
 
         console.log(address);
@@ -252,7 +275,7 @@ module.exports.proceed = async(req,res)=>{
         razorpayInstance.orders.create(options, 
             (err, order)=>{
                 if(!err){
-                    
+                    console.log("ooo");
                     // console.log(order);
                     res.status(200).send({
                         success:true,
@@ -269,6 +292,7 @@ module.exports.proceed = async(req,res)=>{
                     });
                 }
                 else{
+                    console.log(err);
                     res.status(400).send({success:false,msg:'Something went wrong!'});
                 }
             }

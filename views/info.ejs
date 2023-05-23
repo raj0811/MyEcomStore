@@ -43,13 +43,30 @@
                 </div>
             </div>
             <div class="lower">
+                <h1>Description</h1>
                 <div class="desc">
-                    <%= product %>
+                   
                         <%= product.description %>
                 </div>
             </div>
         </div>
-
+        <div class="more-product">
+            <h1 style="text-align: center;">Simmilar Products</h1>
+            <div class="products">
+                <div class="product-ctn">
+                    <% for(let product of catProduct) {%>
+                        <div class="product-box">
+                            <div class="pimg">
+                                <img src="/images/products/<%= product.image%>">
+                            </div>
+                            <a class="pnames" href="/productinfo/<%= product._id %>"><%=product.productName%></a>
+                            <span class="pprice" >Rs. <%=product.price%></span>
+                        </div>
+                        <%}%>
+                </div>
+    
+            </div>
+        </div>
     </div>
 
     <script src="/js/qty.js"></script>
